@@ -30,20 +30,20 @@ Mutable: Object can be modified after its creation
 
 Immutable: to change this string, you will need to create a completely new string.
         M
-  M & U | `List`
+  `Sets` | `List`
 U------------------O
-  I & U | `String`
+  I & U | `String` `tuple`
         I
 Ordered: whether the position of an element in the object can be used to access the element
 ```
 
 > _Mutable & Ordered_: `List`,
 
-> _Immutable & Ordered_: `String`, 
+> _Immutable & Ordered_: `String`, `tuple`
 
 > _Immutable & UnOrdered_: ``, 
 
-> _Mutable & UnOrdered_: ``,
+> _Mutable & UnOrdered_: `Sets`,
 
 
 
@@ -51,8 +51,7 @@ Ordered: whether the position of an element in the object can be used to access 
 | --- | ------ | ---- |
 | String | `"Hello, World"` | ``` `sdsd` ``` |
 | List | `list_of_random_things = [1, 3.4, 'a string', True]` | `var mixedData = ["abcd", 1, true, undefined, null, "all the things"];` |
-| check substring existence | `'this' in 'this is a string'` `# True` | `'this is a string'.includes('this')` `// true` |
-|  | `` | `` |
+| Tuples | `location = (13.4125, 103.866667)` | `` |
 |  | `` | `` |
 |  | `` | `` |
 
@@ -78,6 +77,7 @@ Ordered: whether the position of an element in the object can be used to access 
 | check substring in string | `'this' in 'this is a string'` `# True` | `'this is a string'.includes('this')` `// true` |
 | check non-existence of item in List | `isa' not in 'this is a string'` `# True` | `` |
 
+
 ## 4. __List__
 | Function | Python | JavaScript |
 | --- | ------ | ---- |
@@ -99,3 +99,28 @@ Ordered: whether the position of an element in the object can be used to access 
 | check existence of item in list | `"a string" in list_of_random_things` `# True` | `mixedData.includes('abcd')` `// true` |
 | check non-existence of item in List | `5 not in [1, 2, 3, 4, 6]` `# True` | `` |
 |  | `` | `` |
+
+## 5. __Tuple__
+
+| Function | Python | JavaScript |
+| --- | ------ | ---- |
+| Tuple | `location = (13.4125, 103.866667)` | `` |
+|  | `length, width, height = 52, 40, 100` | `` |
+|  | `dimensions = 52, 40, 100` | `` |
+| Tuple Unpacking | `length, width, height = dimensions` | `` |
+|  | `` | `` |
+|  | `` | `` |
+
+
+## 5. __Sets__
+
+| Function | Python | JavaScript |
+| --- | ------ | ---- |
+| Sets | `fruit = {"apple", "banana", "orange", "grapefruit"}` | `` |
+| Remove duplicates | `numbers = [1, 2, 6, 3, 1, 1, 6]` `unique_nums = set(numbers)` `print(unique_nums)` `# {1, 2, 3, 6}` | `` |
+| check for element | `"watermelon" in fruit` | `` |
+| add an element | `fruit.add("watermelon")` | `` |
+| remove a random element | `fruit.pop()` `# 'apple'` | `` |
+| Union | `` | `` |
+| intersection | `` | `` |
+| difference | `` | `` |
