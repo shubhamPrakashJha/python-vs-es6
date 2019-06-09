@@ -44,7 +44,7 @@ Ordered: whether the position of an element in the object can be used to access 
 
 > _Immutable & UnOrdered_: ``, 
 
-> _Mutable & UnOrdered_: `Sets`,
+> _Mutable & UnOrdered_: `Sets`, `dictionary/Object`
 
 
 
@@ -54,7 +54,7 @@ Ordered: whether the position of an element in the object can be used to access 
 | List | `list_of_random_things = [1, 3.4, 'a string', True]` | `var mixedData = ["abcd", 1, true, undefined, null, "all the things"];` |
 | Tuples | `location = (13.4125, 103.866667)` | `` |
 | Sets | `unique_nums = set([1,2,1,3,2])` | `const unique_nums = new Set([1,2,1,3,2])` |
-| Dictionaries | `VINIX = {'C': [0.74, -6.51],  'MA': [0.78, 34.77]}` | `` |
+| Dictionaries | `VINIX = {'C': [0.74, -6.51],  'MA': [0.78, 34.77]}` | `const elements = {"hydrogen": 1, "helium": 2, "carbon": 6};` |
 |  | `` | `` |
 
 
@@ -68,16 +68,16 @@ Ordered: whether the position of an element in the object can be used to access 
 | Upper Case | `"shubham prakash".upper()`| `"shubham prakash".toUpperCase()` |
 | Template String| `"Does your {} {}?".format("dog", "bite")`| ``` `Does your ${"dog"} ${"bite"}?` ```|
 | | `"Does your {1} {0}?".format( "bite", "dog")` | |
-| Title Case | `"shubham prakash".title()`| `` |
-| Check Case | `"abc".isupper()`| `` |
-| count pattern | `"One fish, two fish".count('fish')`| `` |
-| find First Occurance| `my_string.find('word')`| `` |
-| find Last Occurance| `my_string.rfind('word')`| `` |
-| Split | `"The cow jumped over the moon.".split()` | `"The cow jumped over the moon.".split(' ')` |
+| Title Case | `"shubham prakash".title()`| ```"shubham prakash".split(' ').map(word => `${word[0].toUpperCase()}${word.slice(1,)}`).join(' ')``` |
+| Check Case | `"abc".isupper()`| `"shubham prakash" === "Shubham Prakash".toLocaleLowerCase()` |
+| count pattern | `"One fish, two fish".count('fish')`| `"One fish, two fish".match(/fish/gi).length` |
+| find First Occurance| `my_string.find('word')`| `"One fish, two fish".match('fish').index` |
+| find Last Occurance| `my_string.rfind('word')`| `"One fish, two fish".lastIndexOf('fish')` |
+| Split | `"The cow jumped over the moon.".split()` | `"The cow jumped over the moon.".split(/[ ]+/)` |
 | | `"The cow jumped over the moon.".split(' ', 3)` | `"The cow jumped over the moon.".split(' ', 3);` |
 | | `# ['The', 'cow', 'jumped', 'over the moon.']` | `//["The", "cow", "jumped"]` |
 | check substring in string | `'this' in 'this is a string'` `# True` | `'this is a string'.includes('this')` `// true` |
-| check non-existence of item in List | `isa' not in 'this is a string'` `# True` | `` |
+| check non-existence of item in List | `isa' not in 'this is a string'` `# True` | `!'this is a string'.includes('notExist')` `// true` |
 
 
 ## 4. __List__
@@ -85,8 +85,8 @@ Ordered: whether the position of an element in the object can be used to access 
 | --- | ------ | ---- |
 | Random List | `list_of_random_things = [1, 3.4, 'a string', True]` | `const mixedData = ["abcd", 1, true, undefined, null, "all the things"];` |
 | Length | `len(list_of_random_things)` | `mixedData.length` |
-| maximum | `max([1,3,2,4])` | `` |
-| minimum | `min([1,3,2,4])` | `` |
+| maximum | `max([1,3,2,4])` | `Math.min( ...arr )` |
+| minimum | `min([1,3,2,4])` | `Math.min( ...arr )` |
 | sort | `sorted([1,3,2,4])` | `[1,3,2,4].sort()` |
 | join | `"-".join(["García", "O'Kelly"])` | `["García", "O'Kelly"].join('-')` |
 | push | `letters = ['a', 'b', 'c', 'd']`  | `const letters = ['a', 'b', 'c', 'd']` |
@@ -99,7 +99,7 @@ Ordered: whether the position of an element in the object can be used to access 
 |  | `list_of_random_things[1:]` `# [3.4, 'a string', True]` | `mixedData.slice(1,)` `// [1, true, undefined, null, "all the things"]` |
 |  | `list_of_random_things[:2]` `# [1, 3.4]` | `mixedData.slice(0,2)` `//  ["abcd", 1]` |
 | check existence of item in list | `"a string" in list_of_random_things` `# True` | `mixedData.includes('abcd')` `// true` |
-| check non-existence of item in List | `5 not in [1, 2, 3, 4, 6]` `# True` | `` |
+| check non-existence of item in List | `5 not in [1, 2, 3, 4, 6]` `# True` | `!mixedData.includes('not_exist')` `// true` |
 |  | `` | `` |
 
 ## 5. __Tuple__
@@ -146,10 +146,12 @@ Ordered: whether the position of an element in the object can be used to access 
 | pull values from keys | `elements["helium"]` `# 2`  `elements["kryptonite"]` `# KeyError`| `elements["helium"]` `# 2`  `elements["kryptonite"]` `# undefined` |
 |  | | `elements.helium` `# 2` |
 | pull values from key or return (None/user defined msg)  | `elements.get('kryptonite', 'There\'s no such element!')` | `` |
-| sort values by keys |  | `` |
 | add values to the dictionary | `` | `` |
-|  | `` | `` |
-
+| length of dict | `len(elements)` | `Object.keys().length` |
+| sort values by keys | `sorted(elements)` | `Object.keys().sort()` |
+| First Value of sorted key | `max(elements)` | `Object.keys().sort()[0]` |
+| Last Value of sorted key | `min(elements)` | `Object.keys().sort()[Object.keys().length -1]` |
+| list of values | `.values()` | `Object.keys().map( word => [word])` |
 
 ## 5. __Compound Data Structures__
 | Function |
