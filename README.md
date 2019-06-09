@@ -16,13 +16,22 @@
 | | | `typeof(x)` |
 | Type Casting | `int(4.7)/float(4)/str(4)` | `Number("3.14")/String(false)/x.toString()`|
 | Boolean | `False/True` | `false/true` |
-| lambda/arrow Func | `add = lambda x: x+10` | `const max = x => x+10` |
 | Null Value | `None`| `null` `NaN` `undefined`|
 | Comment | `#`| `//` |
 | length | `len("abc")`| `"abc".length` |
 | | | `(x+y).length` |
 | Checking Equality | `==`| `` |
 | Checking Identity | `is`| `` |
+| lambda/arrow Func | `add = lambda x: x+10` | `const add = x => x+10` |
+| lambda/arrow Func |  | `const add = (x, y) => x+y` |
+| map() | `list(map(func, arr))` | `arr.map(func)` |
+|  | `list(map(lambda x: x*2 , [1,2,3]))` `# [2, 4, 6]` | `[1,2,3].map(x => x*2)` `// [2, 4, 6]` |
+| filter | `list(filter(func, arr))` | `arr.filter(func)` |
+|  | `list(filter(lambda x: (x%2 != 0) , [1,2,3]))` `# [1, 3]` | `[1,2,3].filter(x => (x%2 != 0))` `// [1, 3]` |
+| Reduce | `from functools import reduce` | ```arr.reduce( (accumulator, currentValue, currentIndex, array) => accumulator + currentValue);``` |
+|  | ```reduce((lambda accumulator, currentValue: accumulator + currentValue), li)``` |  |
+|  | `from functools import reduce` | `` |
+|  | `reduce((lambda x, y: x + y), [1,2,3]) ` | `[1,2,3].reduce((x,y) => x+y)` |
 
 ## 3. __Data Structure__
 
@@ -69,6 +78,7 @@ Ordered: whether the position of an element in the object can be used to access 
 | Template String| `"Does your {} {}?".format("dog", "bite")`| ``` `Does your ${"dog"} ${"bite"}?` ```|
 | | `"Does your {1} {0}?".format( "bite", "dog")` | |
 | Title Case | `"shubham prakash".title()`| ```"shubham prakash".split(' ').map(word => `${word[0].toUpperCase()}${word.slice(1,)}`).join(' ')``` |
+|  | ```" ".join(list(map(lambda word: '{}{}'.format(word[0].upper(), word[1:]), "shubham prakash".split())))``` |  |
 | Check Case | `"abc".isupper()`| `"shubham prakash" === "Shubham Prakash".toLocaleLowerCase()` |
 | count pattern | `"One fish, two fish".count('fish')`| `"One fish, two fish".match(/fish/gi).length` |
 | find First Occurance| `my_string.find('word')`| `"One fish, two fish".match('fish').index` |
@@ -80,7 +90,7 @@ Ordered: whether the position of an element in the object can be used to access 
 | check non-existence of item in List | `isa' not in 'this is a string'` `# True` | `!'this is a string'.includes('notExist')` `// true` |
 
 
-## 4. __List__
+## 4. __List/Array__
 | Function | Python | JavaScript |
 | --- | ------ | ---- |
 | Random List | `list_of_random_things = [1, 3.4, 'a string', True]` | `const mixedData = ["abcd", 1, true, undefined, null, "all the things"];` |
