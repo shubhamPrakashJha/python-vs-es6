@@ -5,6 +5,10 @@
 | Function | Python | JavaScript |
 | --- | ------ | ---- |
 | print | `print(x)` | `console.log(x)` |
+| Take Input | `const x = input()` | `const x = prompt()` |
+| | `x = int(input())` | `const x = Number(prompt())` |
+| |  | `const x = Number(window.prompt())` |
+| | `z = int(input("Give Input:"))` | `const z = Number(window.prompt("Give Input:"))` |
 | variable | `my_var = 1`| `let myVar = 1` |
 |  | | `const myVar = 1` |
 | Variable Destructuring | `x, y, z = 1, 2, 3` | `[a, b] = [1, 2]` |
@@ -13,27 +17,32 @@
 | Naming Convention  | `my_var` | `myVar` |
 | Types | `int` `float` `bool` `string`| `number` `boolean` `string` `null` `undefined` `object` `symbol`|
 | Type Finding | `type(x)` | `typeof x` |
-| | | `typeof(x)` |
+| | | `typeof(x)` </br>`//only for above mentioned types` |
+| | | `Array.isArray(some_var)` </br>`//to check for array` |
 | Type Casting | `int(4.7)/float(4)/str(4)` | `Number("3.14")/String(false)/x.toString()`|
 | Boolean | `False/True` | `false/true` |
 | Null Value | `None`| `null` `NaN` `undefined`|
 | Comment | `#`| `//` |
 | length | `len("abc")`| `"abc".length` |
 | | | `(x+y).length` |
-| Checking Equality | `==`| `` |
+| Checking Equality | `==`| `==` |
+| Checking Equality and Type | `==`| `===` |
 | Checking Identity | `is`| `` |
 | lambda/arrow Func | `add = lambda x: x+10` | `const add = x => x+10` |
 | lambda/arrow Func |  | `const add = (x, y) => x+y` |
 | map() | `list(map(func, arr))` | `arr.map(func)` |
-|  | `list(map(lambda x: x*2 , [1,2,3]))` `# [2, 4, 6]` | `[1,2,3].map(x => x*2)` `// [2, 4, 6]` |
+|  | `list(map(lambda x: x*2 , [1,2,3]))` </br>`# [2, 4, 6]` | `[1,2,3].map(x => x*2)` </br>`// [2, 4, 6]` |
 | filter | `list(filter(func, arr))` | `arr.filter(func)` |
-|  | `list(filter(lambda x: (x%2 != 0) , [1,2,3]))` `# [1, 3]` | `[1,2,3].filter(x => (x%2 != 0))` `// [1, 3]` |
+|  | `list(filter(lambda x: (x%2 != 0) , [1,2,3]))` </br>`# [1, 3]` | `[1,2,3].filter(x => (x%2 != 0))`</br> `// [1, 3]` |
 | Reduce | `from functools import reduce` | ```arr.reduce( (accumulator, currentValue, currentIndex, array) => accumulator + currentValue);``` |
 |  | ```reduce((lambda accumulator, currentValue: accumulator + currentValue), li)``` |  |
 |  | `from functools import reduce` | `` |
 |  | `reduce((lambda x, y: x + y), [1,2,3]) ` | `[1,2,3].reduce((x,y) => x+y)` |
+| And | `and` | `&&` |
+| Or | `or` | `||` |
+| Not | `not` | `!` |
 
-## 3. __Data Structure__
+## 2. __Data Structure__
 
 ```def
 Mutable: Object can be modified after its creation
@@ -67,7 +76,7 @@ Ordered: whether the position of an element in the object can be used to access 
 |  | `` | `` |
 
 
-## 3. __Strings__
+## 2.1. __Strings__
 
 | Function | Python | JavaScript |
 | --- | ------ | ---- |
@@ -85,12 +94,12 @@ Ordered: whether the position of an element in the object can be used to access 
 | find Last Occurance| `my_string.rfind('word')`| `"One fish, two fish".lastIndexOf('fish')` |
 | Split | `"The cow jumped over the moon.".split()` | `"The cow jumped over the moon.".split(/[ ]+/)` |
 | | `"The cow jumped over the moon.".split(' ', 3)` | `"The cow jumped over the moon.".split(' ', 3);` |
-| | `# ['The', 'cow', 'jumped', 'over the moon.']` | `//["The", "cow", "jumped"]` |
-| check substring in string | `'this' in 'this is a string'` `# True` | `'this is a string'.includes('this')` `// true` |
-| check non-existence of item in List | `isa' not in 'this is a string'` `# True` | `!'this is a string'.includes('notExist')` `// true` |
+| | </br>`# ['The', 'cow', 'jumped', 'over the moon.']` | </br>`//["The", "cow", "jumped"]` |
+| check substring in string | `'this' in 'this is a string'` </br>`# True` | `'this is a string'.includes('this')` </br>`// true` |
+| check non-existence of item in List | `isa' not in 'this is a string'` </br>`# True` | `!'this is a string'.includes('notExist')` </br>`// true` |
 
 
-## 4. __List/Array__
+## 2.2. __List/Array__
 | Function | Python | JavaScript |
 | --- | ------ | ---- |
 | Random List | `list_of_random_things = [1, 3.4, 'a string', True]` | `const mixedData = ["abcd", 1, true, undefined, null, "all the things"];` |
@@ -105,14 +114,14 @@ Ordered: whether the position of an element in the object can be used to access 
 | pop | `letters.pop()` | `letters.pop()` |
 | First Item | `list_of_random_things[0]` | `mixedData[0]` |
 | Last Item | `list_of_random_things[-1]` | `mixedData[mixedData.length -1]` |
-| Slice & Dice | `list_of_random_things[1:2]` `# 3.4` | `mixedData.slice(1,2)` `// [1]` |
-|  | `list_of_random_things[1:]` `# [3.4, 'a string', True]` | `mixedData.slice(1,)` `// [1, true, undefined, null, "all the things"]` |
-|  | `list_of_random_things[:2]` `# [1, 3.4]` | `mixedData.slice(0,2)` `//  ["abcd", 1]` |
-| check existence of item in list | `"a string" in list_of_random_things` `# True` | `mixedData.includes('abcd')` `// true` |
-| check non-existence of item in List | `5 not in [1, 2, 3, 4, 6]` `# True` | `!mixedData.includes('not_exist')` `// true` |
+| Slice & Dice | `list_of_random_things[1:2]` </br>`# 3.4` | `mixedData.slice(1,2)` </br>`// [1]` |
+|  | `list_of_random_things[1:]` </br>`# [3.4, 'a string', True]` | `mixedData.slice(1,)` </br>`// [1, true, undefined, null, "all the things"]` |
+|  | `list_of_random_things[:2]` </br>`# [1, 3.4]` | `mixedData.slice(0,2)` </br>`//  ["abcd", 1]` |
+| check existence of item in list | `"a string" in list_of_random_things` </br>`# True` | `mixedData.includes('abcd')` </br>`// true` |
+| check non-existence of item in List | `5 not in [1, 2, 3, 4, 6]` </br>`# True` | `!mixedData.includes('not_exist')` </br>`// true` |
 |  | `` | `` |
 
-## 5. __Tuple__
+## 2.3. __Tuple__
 
 | Function | Python | JavaScript |
 | --- | ------ | ---- |
@@ -124,7 +133,7 @@ Ordered: whether the position of an element in the object can be used to access 
 |  | `` | `` |
 
 
-## 5. __Sets__
+## 2.4. __Sets__
 
 | Function | Python | JavaScript |
 | --- | ------ | ---- |
@@ -135,16 +144,16 @@ Ordered: whether the position of an element in the object can be used to access 
 |  | `# {1, 2, 3, 6}` | `// {1, 2, 6, 3}` |
 | check for element | `"watermelon" in fruit` | `fruit.has("watermelon")` |
 | add an element | `fruit.add("watermelon")` | `fruit.add("watermelon")` |
-| remove an element | `fruit.remove("apple")` `//if present`  | `fruit.delete('apple') //true` |
-|  | `fruit.discard("apple")` `//if not sure`  |  |
-| remove a random element | `fruit.pop()` `# 'apple'(random)` |  |
+| remove an element | `fruit.remove("apple")` </br>`//if present`  | `fruit.delete('apple') //true` |
+|  | `fruit.discard("apple")` </br>`//if not sure`  |  |
+| remove a random element | `fruit.pop()` </br>`# 'apple'(random)` |  |
 | Union | `` | `` |
 | intersection | `` | `` |
 | difference | `` | `` |
 | clear Set | `fruit.clear()` | `fruit.clear()` |
 | length of set | `len(fruit)` | `fruit.size` |
 
-## 5. __Dictionaries/Object__
+## 2.5. __Dictionaries/Object__
 
 | Function | Python | JavaScript |
 | --- | ------ | ---- |
@@ -153,8 +162,8 @@ Ordered: whether the position of an element in the object can be used to access 
 |  | `elements = {"hydrogen": 1, "helium": 2, "carbon": 6}` | `const elements = {"hydrogen": 1, "helium": 2, "carbon": 6};` |
 | Check Keys in dict | `"carbon" in elements` | `"carbon" in elements` |
 | | | `elements.hasOwnProperty('carbon')` |
-| pull values from keys | `elements["helium"]` `# 2`  `elements["kryptonite"]` `# KeyError`| `elements["helium"]` `# 2`  `elements["kryptonite"]` `# undefined` |
-|  | | `elements.helium` `# 2` |
+| pull values from keys | `elements["helium"]` </br>`# 2`  `elements["kryptonite"]` </br>`# KeyError`| `elements["helium"]` </br>`# 2`  `elements["kryptonite"]` </br>`# undefined` |
+|  | | `elements.helium` </br>`# 2` |
 | pull values from key or return (None/user defined msg)  | `elements.get('kryptonite', 'There\'s no such element!')` | `` |
 | add values to the dictionary | `` | `` |
 | length of dict | `len(elements)` | `Object.keys().length` |
@@ -163,9 +172,9 @@ Ordered: whether the position of an element in the object can be used to access 
 | Last Value of sorted key | `min(elements)` | `Object.keys().sort()[Object.keys().length -1]` |
 | list of values | `.values()` | `Object.keys().map( word => [word])` |
 
-## 5. __Compound Data Structures__
-| Function |
-| --- |
+## 2.6. __Compound Data Structures__
+
+
  **i. create Coumpound**
 ```python
 # PYTHON
@@ -184,6 +193,15 @@ const elements = {"hydrogen": {"number": 1,
               "helium": {"number": 2,
                          "weight": 4.002602,
                          "symbol": "He"}}
+```
+```javascript
+// ES6 Array of Objects
+const elementsArray = [ {"number": 1,
+                         "weight": 1.00794,
+                         "symbol": "H"},
+                         {"number": 2,
+                         "weight": 4.002602,
+                         "symbol": "He"}]
 ```
 **ii. access Element** 
 ```python
@@ -229,4 +247,123 @@ console.log('elements = ', elements)
 //                           "weight": 15.999, 
 //                           "symbol": "O"}}
  
+```
+
+## 3. __Control Flow/ Conditional Operator__
+
+__i. *if*__
+```python
+# python
+if expression:
+    pass
+```
+```javascript
+// Es6
+if (condition) {
+    
+}
+```
+
+__ii. *if else*__
+```python
+# python
+if condition:
+    pass
+else:
+    pass
+```
+```javascript
+// Es6
+if (condition) {
+    
+} else {
+    
+}
+```
+
+__iii. *else if*__
+```python
+# python
+if condition:
+    pass
+elif expression:
+    pass
+elif expression:
+    pass
+else:
+    pass
+```
+```javascript
+// Es6
+if (condition) {
+    
+} else if (condition) {
+    
+} else if (condition) {
+    
+} else {
+    
+}
+```
+
+__iv. *Ternary Operator*__
+```python
+# python
+a, b = 10, 20
+  
+# Copy value of a in min if a < b else copy b 
+min = a if a < b else b 
+  
+print(min) 
+```
+```javascript
+// Es6
+const [a,b] = [10,20]
+const min = (a<b)?a:b
+console.log(min)
+```
+__iv. *Switch*__
+```python
+# python
+def week(i):
+        switcher={
+                0:'Sunday',
+                1:'Monday',
+                2:'Tuesday',
+                3:'Wednesday',
+                4:'Thursday',
+                5:'Friday',
+                6:'Saturday'
+             }
+         return switcher.get(i,"Invalid day of week")
+```
+```javascript
+// Es6
+function week(i) {
+    switch (i) {
+        case 0:
+            return "sunday"
+            break;
+        case 1:
+            return "Monday"
+            break;
+        case 2:
+            return "Tuesday"
+            break;
+        case 3:
+            return "Wednesday"
+            break;
+        case 4:
+            return "Thursday"
+            break;
+        case 5:
+            return "Friday"
+            break;
+        case 6:
+            return "Saturday"
+            break;    
+        default:
+            return "Invalid day of week"
+    }
+}
 ```
